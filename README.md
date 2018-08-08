@@ -1,6 +1,6 @@
 # Soother App
 
-This is simple react-native app designed to sooth your baby to sleep.
+This is a simple react-native app designed to sooth your baby to sleep.
 
 ## Features
 
