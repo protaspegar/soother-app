@@ -33,6 +33,10 @@ The user would be able to set is slower or faster as he/she finds more suitable 
 
 This app is built using [Expo](https://expo.io/).
 
+You can download the Expo App on Google Play store and then open the Soother App using this url: [https://exp.host/@protaspegar/soother-app](https://exp.host/@protaspegar/soother-app)
+
+## For Developers
+
 Once your development environment is set up, you only need to type the command:
 
 `expo start`
