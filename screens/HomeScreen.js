@@ -86,7 +86,7 @@ export default class HomeScreen extends React.Component {
     const BackgroundColorConfig = this.Animation.interpolate(
       {
         inputRange: [ 0, 0.25, 0.5, 0.75, 1 ],
-        outputRange: [ '#FFA100', '#845300', '#000000', '#845300', '#FFA100' ]
+        outputRange: [ '#000000', '#845300', '#FFA100', '#845300', '#000000' ]
       });
 
     return (
@@ -94,29 +94,23 @@ export default class HomeScreen extends React.Component {
         <KeepAwake />
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
           <View style={styles.welcomeContainer}>
-            <Text style={styles.getStartedText}>Soother 0.1</Text>
-          </View>
-
-          <View style={styles.getStartedContainer}>
-
-            <Text style={styles.getStartedText}>Get started by opening</Text>
-
-            <View style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
-              <MonoText style={styles.codeHighlightText}>screens/HomeScreen.js</MonoText>
-            </View>
-
+            <Text style={styles.titleText}>Soother 0.2</Text>
           </View>
 
           <View style={styles.getStartedContainer}>
             <Text style={styles.getStartedText}>Click on the button to start soothing</Text>
 
-            <Button onPress={this.onPressStart} title="Start Fading" />
-            <Button onPress={this.onPressStop} title="Stop Fading" />
-            <Button onPress={this.onPressPlaySound}  title="Play Sound" />
-            <Button onPress={this.onPressStopSound} title="Stop Sound" />
-
             <TouchableOpacity style={styles.standardButton} onPress={this.onPressStart} >
-              <Text> Start Fading </Text>
+              <Text style={styles.standardButtonText} > Start Fading </Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.standardButton} onPress={this.onPressStop} >
+              <Text style={styles.standardButtonText} > Stop Fading </Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.standardButton} onPress={this.onPressPlaySound} >
+              <Text style={styles.standardButtonText} > Play Sound </Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.standardButton} onPress={this.onPressStopSound} >
+              <Text style={styles.standardButtonText} > Stop Sound </Text>
             </TouchableOpacity>
           </View>
         </ScrollView>
@@ -141,23 +135,17 @@ const styles = StyleSheet.create({
   },
   welcomeContainer: {
     alignItems: 'center',
-    marginTop: 10,
+    marginTop: 30,
     marginBottom: 20,
+  },
+  titleText: {
+    fontSize: 34,
+    color: 'rgba(96,100,109, 1)',
+    textAlign: 'center',
   },
   getStartedContainer: {
     alignItems: 'center',
     marginHorizontal: 50,
-  },
-  homeScreenFilename: {
-    marginVertical: 7,
-  },
-  codeHighlightText: {
-    color: 'rgba(96,100,109, 0.8)',
-  },
-  codeHighlightContainer: {
-    backgroundColor: 'rgba(0,0,0,0.05)',
-    borderRadius: 3,
-    paddingHorizontal: 4,
   },
   getStartedText: {
     fontSize: 17,
@@ -166,9 +154,18 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   standardButton:{
-    backgroundColor: "rgba(92, 99,216, 1)",
+    backgroundColor: "rgba(255,161,0,0.08)",
     width: 300,
     marginTop: 10,
     marginBottom: 10,
+    paddingTop: 20,
+    paddingBottom: 20,
+    alignItems: 'center',
+  },
+  standardButtonText: {
+    fontSize: 17,
+    color: 'rgba(96,100,109, 1)',
+    lineHeight: 24,
+    textAlign: 'center',
   },
 });
