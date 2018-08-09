@@ -1,4 +1,4 @@
-# Soother App
+# Soother App v0.3
 
 This is a simple react-native app designed to sooth your baby to sleep.
 
@@ -16,18 +16,17 @@ This light effect creates a calming sensation that helps your baby to fall aslee
 You can enable a background noise to help your baby fall asleep.
 For now, there is only one sound available: calm nature
 
+4. Changing sound volume:
+When the screen is bright, the volume is higher. When the scree is dark, the volume is lower.
+The effect of the sound fading out, helps the baby to fall asleep, while the sound fading in does not have any impact.
+
 
 ## Next Steps
 
-1. Improve controls to show and hide buttons according to current state.
-For instance, if the sound is playing, the "Play Sound" button should be hidden or disabled.
-
-2. Add option to adjust the volume according to the color.
-When the screen is bright, the volume will be higher. When the scree is dark, the volume will be lower.
-The effect of the sound fading out, helps the baby to fall asleep, while the sound fading in does not have any impact.
-
-3. Add slider control to change the frequency of the fading effect. 
+1. Add slider control to change the frequency of the fading effect. 
 The user would be able to set is slower or faster as he/she finds more suitable for the baby.
+
+2. Add white-noise as a new sound option with a dropbox to choose the desired sound.
 
 
 ## How to Run
