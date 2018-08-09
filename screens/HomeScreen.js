@@ -23,6 +23,7 @@ export default class HomeScreen extends React.Component {
   {
     super();
 
+    this.sound = null;
     this.AnimationRunning = false;
     this.Animation = new Animated.Value(0);
   }
@@ -64,6 +65,22 @@ export default class HomeScreen extends React.Component {
     this.AnimationRunning = false;
     this.StopBackgroundColorAnimation();
   }
+  onPressPlaySound = async () =>
+  {
+    console.log("onPressPlaySound");
+    await Audio.setIsEnabledAsync(true);
+    const sound = new Audio.Sound();
+    await sound.loadAsync(require('../assets/audios/spring-weather.mp3'));
+    await sound.playAsync();
+    this.sound = sound;
+  }
+  onPressStopSound = async () =>
+  {
+    console.log("onPressStopSound");
+    if (this.sound != null){
+      await this.sound.unloadAsync();
+    }
+  }
 
   render() {
     const BackgroundColorConfig = this.Animation.interpolate(
@@ -93,16 +110,14 @@ export default class HomeScreen extends React.Component {
           <View style={styles.getStartedContainer}>
             <Text style={styles.getStartedText}>Click on the button to start soothing</Text>
 
-            <Button
-              onPress={this.onPressStart}
-              title="Start"
-              color="#841584"
-             />
-            <Button
-              onPress={this.onPressStop}
-              title="Stop"
-              color="#8FFF84"
-             />
+            <Button onPress={this.onPressStart} title="Start Fading" />
+            <Button onPress={this.onPressStop} title="Stop Fading" />
+            <Button onPress={this.onPressPlaySound}  title="Play Sound" />
+            <Button onPress={this.onPressStopSound} title="Stop Sound" />
+
+            <TouchableOpacity style={styles.standardButton} onPress={this.onPressStart} >
+              <Text> Start Fading </Text>
+            </TouchableOpacity>
           </View>
         </ScrollView>
 
@@ -149,5 +164,11 @@ const styles = StyleSheet.create({
     color: 'rgba(96,100,109, 1)',
     lineHeight: 24,
     textAlign: 'center',
+  },
+  standardButton:{
+    backgroundColor: "rgba(92, 99,216, 1)",
+    width: 300,
+    marginTop: 10,
+    marginBottom: 10,
   },
 });
